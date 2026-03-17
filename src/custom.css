@@ -1,0 +1,67 @@
+/* --- 共通カラー設定 --- */
+:root {
+  /* Fandom風のメインカラー：鮮やかな青、またはオレンジ */
+  --sl-color-accent-low: #e1f5fe;
+  --sl-color-accent: #00aaff;     /* ここを好きなメインカラーに */
+  --sl-color-accent-high: #0077cc;
+  
+  /* 背景をアットウィキ風に少し落ち着かせる */
+  --sl-color-bg: #f4f6f8;         /* 全体の背景（薄いグレー） */
+  --sl-color-bg-nav: #ffffff;     /* サイドバーの背景（白） */
+  --sl-color-text: #333333;       /* 文字色 */
+}
+
+/* --- 記事エリアをアットウィキ風に「白箱」にする --- */
+.main-frame {
+  background-color: #ffffff;
+  border: 1px solid #d0d7de;      /* アットウィキ風の細い境界線 */
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-top: 1rem;
+  padding: 2rem !important;
+}
+
+/* --- サイドバー（メニュー）の調整 --- */
+.sidebar-pane {
+  border-right: 1px solid #d0d7de !important;
+  background-color: #fcfcfc !important;
+}
+
+/* メニューの項目にホバーした時の色 */
+.sidebar-content a:hover {
+  background-color: var(--sl-color-accent-low) !important;
+  color: var(--sl-color-accent-high) !important;
+}
+
+/* --- 見出しを「攻略サイト風」にする --- */
+h2 {
+  border-left: 6px solid var(--sl-color-accent); /* 左側に太い棒 */
+  padding: 0.5rem 1rem;
+  background: #f8f9fa;                           /* 見出しの背景を薄いグレーに */
+  border-bottom: 1px solid #d0d7de;
+  font-weight: bold;
+}
+
+h3 {
+  border-bottom: 2px solid var(--sl-color-accent); /* 下線を引く */
+  padding-bottom: 0.2rem;
+  margin-top: 2rem;
+}
+
+/* --- 表（テーブル）をWiki風に見やすく --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+th {
+  background-color: #f0f2f5; /* ヘッダーをグレーに */
+  border: 1px solid #d0d7de;
+  font-weight: bold;
+}
+
+td {
+  border: 1px solid #d0d7de;
+  padding: 8px;
+}

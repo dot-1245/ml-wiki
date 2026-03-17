@@ -15,6 +15,10 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
+    				label: '🛡️ 利用規約',
+				    link: '/rules', // ここを追加
+  				},
+				{
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.

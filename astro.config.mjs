@@ -8,6 +8,8 @@ export default defineConfig({
 		starlight({
 			title: 'MiLight Server Wiki',
 
+			favicon: '/favicon.png',
+
 			customCss: [
 				'./src/custom.css',
 			],

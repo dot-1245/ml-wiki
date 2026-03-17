@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'MLS Wiki',
+			title: 'MiLight Server Wiki',
 
 			customCss: [
 				'./src/custom.css',

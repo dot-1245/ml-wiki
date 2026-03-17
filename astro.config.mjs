@@ -15,9 +15,16 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-    				label: '🛡️ 利用規約',
-				    link: '/rules', // ここを追加
-  				},
+					label: '🛡️ 利用規約',
+					link: '/rules',
+				},
+				{
+					label: '✨ 独自機能',
+					items: [
+						{ label: '🚀 テレポート', link: '/features/tp' },
+						{ label: '🏆 スキル', link: '/features/skills' },
+					],
+				},
 			],
 		}),
 	],

@@ -13,6 +13,12 @@ export default defineConfig({
 			customCss: [
 				'./src/custom.css',
 			],
+
+			components: {
+        PageTitle: './src/components/PageTitleWithAd.astro',
+        Footer: './src/components/FooterWithAd.astro',
+        Sidebar: './src/components/SidebarWithAd.astro',
+	    },
 			
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [

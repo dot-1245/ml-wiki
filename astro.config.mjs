@@ -18,17 +18,6 @@ export default defineConfig({
     				label: '🛡️ 利用規約',
 				    link: '/rules', // ここを追加
   				},
-				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
 			],
 		}),
 	],

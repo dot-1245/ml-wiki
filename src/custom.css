@@ -28,36 +28,48 @@ hr {
   opacity: 1 !important;
 }
 
-/* --- 3. 【重要】見出しデザインの再定義 --- */
+/* --- 3. 見出しデザイン（幅を文字に合わせる修正） --- */
 
-/* H2: 緑の太棒 + 背景帯 */
+/* H2: 緑の太棒 + 背景帯を文字幅にする */
 .sl-markdown-content h2 {
-  display: flex !important;
+  /* display: flex を inline-flex に変えることで、幅が中身（文字）に合わさります */
+  display: inline-flex !important; 
   align-items: center !important;
-  width: 100% !important;
-  padding: 0.6rem 1rem !important;
+  
+  /* 100%幅を解除 */
+  width: auto !important;
+  max-width: 100% !important;
+  
+  padding: 0.6rem 1.5rem 0.6rem 1rem !important; /* 右側に少し余白を足してバランス調整 */
   margin: 2.5rem 0 1.5rem 0 !important;
   
-  /* デザインの肝 */
   background-color: #f8f9fa !important;
   border-left: 10px solid var(--sl-color-accent) !important;
   border-bottom: 1px solid var(--sl-color-border) !important;
   
-  /* 文字設定 */
   font-size: 1.5rem !important;
   font-weight: bold !important;
   color: inherit !important;
+  
+  /* H2の後に続く要素が横に並ばないように改行を強制 */
+  clear: both !important;
+}
+
+/* H2の後に改行を入れるための擬似要素 */
+.sl-markdown-content h2::after {
+  content: "";
+  display: block;
 }
 
 :root[data-theme='dark'] .sl-markdown-content h2 {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
-/* H3: 灰色の線 */
+/* H3: 灰色の線も文字幅にする */
 .sl-markdown-content h3 {
-  display: flex !important;
-  align-items: center !important;
-  padding: 0.4rem 0.8rem !important;
+  display: inline-flex !important;
+  width: auto !important;
+  padding: 0.4rem 1.2rem 0.4rem 0.8rem !important;
   margin-top: 2rem !important;
   
   border-left: 5px solid #bdc3c7 !important;
@@ -67,15 +79,18 @@ hr {
   font-weight: bold !important;
 }
 
-/* 鎖アイコンの並び順と見た目 */
-.sl-markdown-content :is(h1, h2, h3, h4, h5) {
-  gap: 0.5rem !important;
+/* 見出しが「inline-flex」だと横に文字が回り込むのを防ぐ */
+.sl-markdown-content :is(h2, h3) {
+  display: flex !important; /* width: fit-content を使うために flex に戻して調整 */
+  width: fit-content !important; 
 }
 
+/* 鎖アイコンの並び順 */
 .sl-markdown-content :is(h1, h2, h3, h4, h5) a[aria-hidden="true"] {
   position: static !important;
   display: inline-flex !important;
-  order: 2 !important; /* 文字の後に配置 */
+  order: 2 !important;
+  margin-left: 10px !important; /* 文字との間に少し隙間 */
   color: var(--sl-color-accent) !important;
   opacity: 0.3;
 }

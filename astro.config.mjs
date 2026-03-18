@@ -44,7 +44,7 @@ export default defineConfig({
 					label: '⛓️ 関連リンク',
 					items: [
 						{ label: '🏠 公式サイト-準備中', link: '#' },
-						{ label: '🛡️ 公式Wiki', link: 'https://wiki.mlms.n1e.net/' },
+						{ label: '📄 公式Wiki', link: 'https://wiki.mlms.n1e.net/' },
 						{ label: '💬 公式Discord', link: 'https://discord.gg/UyKV4BDxBR' },
 					],
 				},

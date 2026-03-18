@@ -1,4 +1,4 @@
-/* --- 1. 基本変数 --- */
+/* --- 1. 基本設定 --- */
 :root {
   --sl-font-size-base: 15px;
   --sl-content-width: 82rem;
@@ -12,7 +12,7 @@
   --sl-color-border: #666666;
 }
 
-/* --- 2. レイアウト --- */
+/* --- 2. レイアウト（余計な枠を削除） --- */
 .content-panel {
   background-color: var(--sl-color-bg-content) !important;
   border: none !important; 
@@ -21,31 +21,22 @@
   padding: 1rem 2rem !important;
 }
 
-hr {
-  border: 0;
-  border-top: 1px solid var(--sl-color-border) !important;
-  margin: 2rem 0 !important;
-  opacity: 1 !important;
-}
-
-/* --- 3. 【最重要】見出しと鎖アイコンのズレを根こそぎ直す --- */
+/* --- 3. 見出し：鎖アイコンを絶対に右側に固定する --- */
 
 .sl-markdown-content :is(h1, h2, h3, h4, h5) {
-  display: flex !important;
+  /* 見出しを「文字の幅」に合わせ、横並びを強制 */
+  display: inline-flex !important;
   align-items: center !important;
-  width: fit-content !important; /* 幅を文字＋アイコンに合わせる */
+  flex-wrap: nowrap !important;
+  width: fit-content !important;
   max-width: 100% !important;
-  
-  /* Starlightの「浮かせる設定」をリセット */
-  position: relative !important;
-  overflow: visible !important;
 
-  /* 背景と線の設定 */
+  /* 背景と線のデザイン */
   background-color: #f8f9fa !important;
   border-bottom: 1px solid var(--sl-color-border) !important;
   padding: 0.6rem 1rem !important;
   margin: 2.5rem 0 1.5rem 0 !important;
-  gap: 0.5rem !important;
+  gap: 12px !important; /* 文字と鎖の間隔 */
 }
 
 /* 緑の太棒 (H2) */
@@ -59,35 +50,39 @@ hr {
   font-size: 1.25rem !important;
 }
 
+/* ダークモード時の背景 */
 :root[data-theme='dark'] .sl-markdown-content :is(h1, h2, h3) {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
-/* 鎖アイコンを文字の右側に「強制接着」する */
-.sl-markdown-content :is(h1, h2, h3, h4, h5) > a[aria-hidden="true"] {
-  /* Starlightの絶対配置（浮かせる設定）を力ずくで解除 */
-  position: static !important; 
-  transform: none !important;
-  margin: 0 !important;
-  padding: 0 4px !important;
-  
-  /* 見た目の調整 */
+/* 【重要】鎖アイコンを右側に固定し、浮いている状態を解除 */
+.sl-markdown-content :is(h1, h2, h3, h4, h5) a[aria-hidden="true"] {
+  /* 絶対配置や浮かしを完全に無効化 */
+  position: relative !important;
+  inset: auto !important;
   display: inline-flex !important;
   align-items: center !important;
+  order: 2 !important; /* 必ず文字の後に配置 */
+  
+  /* Starlight標準の「左側に浮かせる」設定をリセット */
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  width: auto !important;
+  height: auto !important;
+  
   color: var(--sl-color-accent) !important;
   opacity: 0.3;
-  
-  /* 文字の後に並べる */
-  order: 2 !important;
 }
 
-/* 鎖アイコンの中のSVGがずれないように */
-.sl-markdown-content :is(h1, h2, h3, h4, h5) a[aria-hidden="true"] svg {
-  margin: 0 !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
+/* アイコンが左側に残る原因（擬似要素）を消去 */
+.sl-markdown-content :is(h1, h2, h3, h4, h5)::before,
+.sl-markdown-content :is(h1, h2, h3, h4, h5)::after {
+  display: none !important;
+  content: none !important;
 }
 
+/* ホバー時に鎖を濃くする */
 .sl-markdown-content :is(h1, h2, h3, h4, h5):hover a[aria-hidden="true"] {
   opacity: 1;
 }
@@ -125,15 +120,4 @@ td {
   border-left: 4px solid var(--sl-color-border);
   color: var(--sl-color-text-muted);
   font-size: 0.95rem;
-}
-
-/* --- 6. サイドバー --- */
-.sidebar-content a {
-  border-bottom: 1px dotted var(--sl-color-border) !important;
-  padding: 0.5rem 1rem !important;
-}
-
-.sidebar-content a[aria-current="page"] {
-  background-color: rgba(46, 125, 50, 0.1) !important;
-  color: var(--sl-color-accent) !important;
 }

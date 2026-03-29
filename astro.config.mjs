@@ -20,6 +20,7 @@ export default defineConfig({
         Sidebar: './src/components/SidebarWithAd.astro',
 	    },
 
+			social: [{ icon: 'discord', label: 'Discord', href: 'http://discord.gg/UyKV4BDxBR' }],
 			sidebar: [
 				{
 					label: '🛡️ 利用規約',

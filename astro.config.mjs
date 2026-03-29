@@ -38,6 +38,7 @@ export default defineConfig({
 						{ label: '📦️ チェスト・ドアの保護', link: '/features/cdhogo' },
 						{ label: '⛏️ 一括破壊', link: '/features/veinminer' },
 						{ label: '🏆 スキル機能', link: '/features/skills' },
+						{ label: '🐾 ペット機能', link: '/features/pet' },
 						{ label: '🥚 エッグキャッチャー', link: '/features/eggc' },
 					],
 				},

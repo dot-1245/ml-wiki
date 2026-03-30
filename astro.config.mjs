@@ -39,6 +39,7 @@ export default defineConfig({
 						{ label: '⛏️ 一括破壊', link: '/features/veinminer' },
 						{ label: '🏆 スキル機能', link: '/features/skills' },
 						{ label: '🐾 ペット機能', link: '/features/pet' },
+						{ label: '🛗 エレベーター機能', link: '/features/elevator' },
 						{ label: '🥚 エッグキャッチャー', link: '/features/eggc' },
 					],
 				},

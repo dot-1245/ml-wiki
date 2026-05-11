@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'MiLight Survival Server Wiki',
+			title: 'MiLight Server Wiki',
 
 			favicon: '/favicon.png',
 
